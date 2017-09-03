@@ -5,9 +5,9 @@ input_ros_topic: "/pepper_robot/sink/front/image_raw"
 
 # Image locations
 targets:
- - "/vol/pepper/systems/pepper-robocup-nightly/share/clf_detect/data/example_images/milk.png"
- - "/vol/pepper/systems/pepper-robocup-nightly/share/clf_detect/data/example_images/coco.png"
- - "/vol/pepper/systems/pepper-robocup-nightly/share/clf_detect/data/example_images/pringels.png"
+ - "@PREFIX@/share/clf_detect/data/example_images/milk.png"
+ - "@PREFIX@/share/clf_detect/data/example_images/coco.png"
+ - "@PREFIX@/share/clf_detect/data/example_images/pringels.png"
 
 # Corresponding labels
 labels:

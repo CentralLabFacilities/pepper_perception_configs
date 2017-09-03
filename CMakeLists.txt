@@ -12,4 +12,13 @@ IF (CMAKE_INSTALL_PREFIX)
     MESSAGE("-- Found install PREFIX: " ${PREFIX})
 ENDIF()
 
+FILE(GLOB yaml_files "vision/clf_perception/*.yaml.in")
+
+# Replace the @PREFIX@
+FOREACH(file ${yaml_files})
+    STRING(REGEX REPLACE "^(.*)\\.in$" "\\1" demofile ${file})
+    CONFIGURE_FILE(${file} "${CMAKE_CURRENT_BINARY_DIR}/${demofile}" @ONLY)
+    INSTALL(FILES "${CMAKE_CURRENT_BINARY_DIR}/${demofile}" DESTINATION "${PREFIX}/share/${CMAKE_PROJECT_NAME}/vision/clf_perception")
+ENDFOREACH()
+
 INSTALL(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/vision" DESTINATION ${PREFIX}/share/${CMAKE_PROJECT_NAME})
